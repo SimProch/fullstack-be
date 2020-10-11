@@ -7,6 +7,10 @@ version: 2.1
 orbs:
   snyk: snyk/snyk@0.0.8
   cypress: cypress-io/cypress@1
+workflows:    
+  node-tests:
+    jobs:
+      - node/test
 jobs:
   build:
     docker:
@@ -18,9 +22,4 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/chat-fe-angular
-
-    steps:
-      - checkout
-
-      - run: npm install
+    working_directory: ~/chat-be-api
